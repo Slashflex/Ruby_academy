@@ -1,21 +1,22 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  def index
-  end
+  def index; end
 
   def create
-    # binding.pry 
+    # binding.pry
 
-    @comment = 
+    @comment =
       Comment.create comment_params.merge(
         user_id: @current_user.id
       )
-      if @comment.save
-        flash[:info] = 'VICTORY !'
-        redirect_to request.referrer || root_path
-      else
-        flash[:info] = "Erreur lors de l'envoi du commentaire !"
-        redirect_to request.referrer
-      end
+    if @comment.save
+      flash[:info] = 'VICTORY !'
+      redirect_to request.referrer || root_path
+    else
+      flash[:info] = "Erreur lors de l'envoi du commentaire !"
+      redirect_to request.referrer
+    end
   end
 
   def show
@@ -49,5 +50,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :user_id, :pokemon_id)
   end
-
 end

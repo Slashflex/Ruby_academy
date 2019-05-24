@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def index
     @user = User.new
@@ -8,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   def list_user
-    if @current_user && @current_user.role.name == "admin"
-    @users = User.all
+    if @current_user && @current_user.role.name == 'admin'
+      @users = User.all
     else
       stop
     end
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     if @user.save
-      flash[:info] = "Votre compte à bien été enregistré"
+      flash[:info] = 'Votre compte à bien été enregistré'
       redirect_to root_path
     else
       flash[:info] = "Erreur lors de l'enregistrement de votre compte"
@@ -26,30 +28,26 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-  end
+  def login; end
 
   def logout
     if @current_user
-    session[:user_id] = nil
-    flash[:info] = "Vous êtes maintenant déconnecté."
-    redirect_to root_path
+      session[:user_id] = nil
+      flash[:info] = 'Vous êtes maintenant déconnecté.'
+      redirect_to root_path
     end
   end
 
   def check
-    @current_user = User.where(login:params[:login], password:params[:password]).first
+    @current_user = User.where(login: params[:login], password: params[:password]).first
     if @current_user
       session[:user_id] = @current_user.id
-      flash[:info] = "Connexion réussit"
+      flash[:info] = 'Connexion réussie'
       redirect_to root_path
     else
       session[:user_id] = nil
-      flash[:info] = "Erreur de connexion"
+      flash[:info] = 'Erreur de connexion'
       render 'login'
     end
-      
-
   end
-
 end

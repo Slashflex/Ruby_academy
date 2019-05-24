@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_04_24_142446) do
 
-  create_table "comments", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.integer "pokemon_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_142446) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "pokemons", force: :cascade do |t|
+  create_table "pokemons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "content"
     t.integer "type_id"
@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 2019_04_24_142446) do
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 
-  create_table "roles", force: :cascade do |t|
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "types", force: :cascade do |t|
+  create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "login"
     t.string "password"
     t.integer "role_id"

@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class PokemonsController < ApplicationController
-  
   def index
     @pokemons = Pokemon.page(params[:page]).per(4)
     @pokemon = Pokemon.new
@@ -48,10 +49,10 @@ class PokemonsController < ApplicationController
   end
 
   private
-  
+
   def pokemon_params
-    defaults = { user_id: @current_user.id}
-    params.require(:pokemon).permit(:name, :content, :type_id, :image , :user_id).reverse_merge(defaults)
+    defaults = { user_id: @current_user.id }
+    params.require(:pokemon).permit(:name, :content, :type_id, :image, :user_id).reverse_merge(defaults)
   end
 
   def sanitized_pokemon_params
@@ -65,5 +66,4 @@ class PokemonsController < ApplicationController
     sanitized['name'] = pokemon_params[:content].capitalize
     sanitized
   end
-
 end
