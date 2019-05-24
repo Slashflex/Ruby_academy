@@ -1,0 +1,17 @@
+<h1>Pokédex</h1>
+
+
+<%# TODO - FILTER %>
+<ul>
+<% @pokemons.each do |p|%>
+    <%= list_pokemons p%>
+<%end%>
+</ul>
+
+<%= paginate @pokemons %>
+
+<%= render '/pokemons/form' %>
+
+<a href="/"><input type="submit" value="Retour à l'accueil"></a>
+
+

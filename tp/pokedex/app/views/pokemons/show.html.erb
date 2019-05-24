@@ -1,0 +1,30 @@
+<h2><%=@pokemon.name%></h2>
+<%= image_tag @pokemon.image.url(:medium)%>
+<p>Type: <%= @pokemon.type.name %></p>
+<p>Description: <%= @pokemon.content%></p><br>
+<%if @pokemon.user_id%>
+    <p>Pokémon de <%= @pokemon.user.login %></p>
+<%else%>
+    <p>Pokémon sauvage</p>
+<%end%>
+
+
+<%if @current_user%>
+    <%if @current_user.id == @pokemon.user_id%>
+        <%= render '/pokemons/form' %>
+        <%= form_tag "/pokemons/#{@pokemon.id}", method: "delete" do%>
+            <input type="submit" value="retirer">
+        <%end%>
+    <%end%>
+<%end%>
+
+
+
+
+<a href="/pokemons"><input type="submit" value="retour"></a>
+
+<%= render '/comments/list'%>
+
+<%if @current_user%>
+    <%= render partial: '/comments/form', locals: {pokemon_id: @pokemon.id} %>
+<%end%>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pokedex</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%if @current_user%>
+        <p>Bonjour <%= @current_user.login %></p>
+        <%= form_tag "/users", method: "delete" do%>
+          <input type="submit" value="déconnexion">
+        <%end%>
+      <%end%>
+    </header>
+
+    <main>
+      <%= flash[:info] %>
+      <%= yield %>
+    </main>
+
+    <footer>
+    </footer>
+  </body>
+</html>

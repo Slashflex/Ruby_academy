@@ -1,0 +1,15 @@
+<h1>Commentaires :</h1>
+<hr>
+<% @comments.each do |c|%>
+    <p>commentaire de  <%= c.user.login%></p>
+    <p><%= c.content%></p>
+    <%if @current_user%>
+        <%if @current_user.id == c.user_id%>
+            <a href="/comments/<%=c.id%>"><input type="submit" value="éditer"></a>
+            <%= form_tag "/comments/#{c.id}", method: "delete" do%>
+                <input type="submit" value="supprimer">
+            <%end%>
+        <%end%>
+    <%end%>
+    <hr>
+<%end%>

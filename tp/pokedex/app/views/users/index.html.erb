@@ -1,0 +1,15 @@
+<h1>Accueil</h1>
+
+<% if @current_user %>
+    <a href="/pokemons"><input type="submit" value="ouvrir le pokédex"></a>
+    <% if @current_user.admin? %>
+        <a href="/users/list_user"><input type="submit" value="liste des dresseurs"></a>
+    <%end%>
+<%else%>
+    <a href="/users/login"><input type="submit" value="connexion"></a>
+    <%= render 'users/form' %>
+<%end%>
+
+
+
+

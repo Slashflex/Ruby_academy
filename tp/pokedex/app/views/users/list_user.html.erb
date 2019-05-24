@@ -1,0 +1,9 @@
+<h1>liste des dresseurs</h1>
+
+<ul>
+<% @users.each do |user|%>
+    <a href="/users/<%= user.id%>"><li><%= user.login %></li></a>
+<%end%>
+</ul>
+
+<a href="/"><input type="submit" value="retour"></a>

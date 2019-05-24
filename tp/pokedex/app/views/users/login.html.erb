@@ -1,0 +1,9 @@
+<h1>login</h1>
+
+<%= form_tag '/users/login', method: :post do |u|%>
+
+    <input type="text" name="login" placeholder="login">
+    <input type="text" name="password" placeholder="password">
+    <input type="submit" value="se connecter">
+
+<%end%>
