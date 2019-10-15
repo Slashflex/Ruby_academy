@@ -98,6 +98,25 @@ end
 
 **On peut ajouter des conditions pour réaliser différentes actions dans Ruby selon le cas à l'aide des mots-clés if, else, elsif**
 
+## Les méthodes (fonctions)
+### !!! Une méthode (aussi appelée fonction) est une série d'actions. Elle se définit à l'intérieur d'une classe en commençant par le mot-clé def et se termine par end.   !!!
+
+## Sans paramètres:
+
+```RUBY
+def nom_complet
+    prenom + " " + nom
+end
+```
+
+## Avec paramètres:
+
+```RUBY
+def habite_en(valeur)
+    valeur == pays
+end
+```
+
 
 
 ## Les conditions
