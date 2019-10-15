@@ -1,6 +1,6 @@
 # Ruby_academy
 
-# La 
+# La Composition
 ### !!! La composition consiste à faire interagir des classes qui représentent des objets très différents entre eux. !!!
 
 ## Pour faire de la composition, on crée un attribut dans une classe dans lequel on pourra préciser des informations d'une autre classe.
@@ -38,9 +38,9 @@ eleve_brilliant = Eleve.new("Alan", [crypto,maths])
 ### !!! Pour exécuter un fichier Ruby à partir de la console, placez votre console dans le répertoire contenant le fichier et tapez !!!
 ### ruby nom_du_fichier.rb
 
-
+# Les Boucles
 ## Boucle pour parcourir un tableau:
-```RUBY
+```ruby
 jours_ouvres = [
     "lundi", "mardi", "mercredi", "jeudi", "vendredi"
 ]
@@ -163,7 +163,7 @@ def habite_en(valeur)
 end
 ```
 
-
+# Les tableaux
 ## Créer un tableau:
 ```RUBY
 mon_tableau = [
@@ -229,7 +229,7 @@ mon_hashage.[:toronto]= 5 // mon_hashage.[:new] = 11
 ```
 
 # Ruby On Rails
-Installer Rails sur Windows
+## Installer Rails sur Windows
 
 * Aller sur: http://railsinstaller.org/fr-FR et installer la version la plus récente pour Windows (2.3 à l'heure ou j'écris)
 * Lancer railsinsaller, en gardant tout cocher (comme par défaut normalement)
