@@ -5,8 +5,8 @@ default: &default
   timeout: 5000
   reconnect: false
   host: localhost
-  username: slashflex
-  password: Tutt1_grupp1
+  username: root
+  password: SupralePGM2019.
 
 development:
   <<: *default
